@@ -19,6 +19,7 @@ Should look like this when installed:
 ## Requirements
 
 * Movable Type 6 or Movable Type 7
+* [Digest::HMAC_SHA1](http://search.cpan.org/~gaas/Digest-HMAC-1.03/) cpan module
 * [MFA plugin](https://github.com/usualoma/mt-plugin-MFA)
 
 ## Recommends
@@ -26,7 +27,14 @@ Should look like this when installed:
 I strongly recommend installing Math::Random::MT. 
 If it is installed, a token is generated with a more secure algorithm.
 
-* [Math::Random::MT](http://search.cpan.org/~fangly/Math-Random-MT-1.17/)
+* [Math::Random::MT](http://search.cpan.org/~fangly/Math-Random-MT-1.17/) capn modules
+
+## Thanks
+
+This plugin includes these cpan modules.
+
+* [Auth::GoogleAuth](http://search.cpan.org/~gryphon/Auth-GoogleAuth-1.01/)
+* [Convert::Base32](http://search.cpan.org/~ikegami/Convert-Base32-0.06/)
 
 ## LICENSE
 
