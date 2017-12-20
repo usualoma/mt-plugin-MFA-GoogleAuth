@@ -1,6 +1,6 @@
 id: MFAGoogleAuth
 name: MFA-GoogleAuth
-version: 0.0.1
+version: 0.0.2
 
 description: <__trans phrase="This plugin enables multi factor authentication by the google authenticator.">
 author_name: Taku AMANO
