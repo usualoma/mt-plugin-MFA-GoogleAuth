@@ -1,0 +1,60 @@
+<fieldset id="author-profile-settings" class="form-group">
+  <legend class="h3"><__trans phrase="Google Authenticator"></legend>
+<mt:If name="enabled">
+  <p><__trans phrase="Enabled"></p>
+  <button type="submit" id="mfa-google-auth-disable" class="publish action primary button btn btn-primary mx-1 first-child"><__trans phrase="Disable Google Authenticator"></button>
+<mt:Else>
+  <button type="submit" id="mfa-google-auth-enable" class="publish action primary button btn btn-primary mx-1 first-child"><__trans phrase="Enable Google Authenticator"></button>
+</mt:If>
+</fieldset>
+<script type="text/javascript">
+jQuery(function($) {
+  "use strict";
+
+  $("#mfa-google-auth-disable").on("click", function(ev) {
+    ev.preventDefault();
+    if (window.confirm("<__trans phrase="Are you sure want to disable multifactor authentication of the Google Authenticator?" encode_js="1">")) {
+      $.ajax({
+        type: "POST",
+        url: "<mt:AdminCGIPath /><mt:AdminScript />?__mode=mfa_google_auth_disable",
+        dataType: "json",
+      }).then(function(data) {
+        location.reload();
+      });
+    }
+  });
+
+  $("#mfa-google-auth-enable").on("click", function(ev) {
+    ev.preventDefault();
+    $.ajax({
+      type: "POST",
+      url: "<mt:AdminCGIPath /><mt:AdminScript />?__mode=mfa_google_auth_enable",
+      dataType: "json",
+    }).then(function(data) {
+      var res = data.result;
+
+      (jQuery.fn.mtModal || jQuery.fn.mtDialog).open(
+        '<mt:AdminCGIPath /><mt:AdminScript />?__mode=mfa_google_auth_dialog',
+        {
+            esckeyclose: false
+        }
+      );
+
+      var $iframe = $("#mt-dialog-iframe, .mt-modal iframe");
+      var intervalId = setInterval(function() {
+        console.log($iframe.contents());
+        if ($iframe.contents().find("#qr-code").length) {
+          $iframe.contents().find("#qr-code").attr({src: res.qrCodeUrl});
+          clearInterval(intervalId);
+        }
+      }, 1000);
+
+      function onModalHidden(ev) {
+        location.reload();
+      }
+      $(window).on('dialogDisposed', onModalHidden);
+      $(".mt-modal").on("hidden.bs.modal", onModalHidden);
+    });
+  });
+});
+</script>

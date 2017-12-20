@@ -1,0 +1,30 @@
+<mt:setvarblock name="page_title"><__trans phrase="Registering your account to the device"></mt:setvarblock>
+
+<mt:setvarblock name="modal_body">
+<p><__trans phrase="Scan the QR code in order to register your account to the device."></p>
+<div style="text-align: center">
+  <img id="qr-code" />
+</div>
+</mt:setvarblock>
+
+<mt:setvarblock name="action_buttons">
+  <button
+    type="submit"
+    accesskey="x"
+    class="cancel action button mt-close-dialog btn btn-default"
+    data-mt-modal-close
+    title="<__trans phrase="Close (x)">">
+    <__trans phrase="Close">
+  </button>
+</mt:setvarblock>
+
+<mt:include name="layout/modal.tmpl">
+
+<mt:if name="layout">
+<mt:var name="layout">
+<mt:else>
+<mt:include name="dialog/header.tmpl">
+<mt:var name="modal_body">
+<mt:var name="action_buttons">
+<mt:include name="dialog/footer.tmpl">
+</mt:if>
