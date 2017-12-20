@@ -44,7 +44,7 @@ sub enable {
 
     my $url = $auth->qr_code(
         $user->mfa_google_auth_secret,
-        MT->config->EmailAddressMain,
+        $user->email,
         'Movable Type',
     );
 
