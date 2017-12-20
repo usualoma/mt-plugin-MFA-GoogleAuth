@@ -90,7 +90,7 @@ sub show_settings {
 sub render_form {
     my ($cb, $app, $param) = @_;
 
-    return 1 unless $param->{author}->mfa_google_auth_secret;
+    return 1 unless $app->user->mfa_google_auth_secret;
 
     push @{$param->{templates}}, plugin()->load_tmpl('form.tmpl');
 }
