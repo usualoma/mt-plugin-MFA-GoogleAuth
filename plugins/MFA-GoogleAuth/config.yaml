@@ -13,6 +13,7 @@ l10n_lexicon:
     Registering your account to the device: "デバイスへのアカウントの登録"
     Scan the QR code in order to register your account to the device.: "QRコードをスキャンしてデバイスにアカウントを登録してください。"
     Are you sure want to disable multifactor authentication of the Google Authenticator?: "Google Authenticatorによる多要素認証を無効にしてもよろしいですか？"
+    Enter the 6-digit security token displayed on your security device.: "セキュリティデバイスに表示された6桁の確認コードを入力してください。"
     Security token: "確認コード"
     Enable Google Authenticator: "有効にする"
     Disable Google Authenticator: "無効にする"
