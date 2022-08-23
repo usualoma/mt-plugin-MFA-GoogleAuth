@@ -16,7 +16,7 @@ jQuery(function($) {
     if (window.confirm("<__trans phrase="Are you sure want to disable multifactor authentication of the Google Authenticator?" encode_js="1">")) {
       $.ajax({
         type: "POST",
-        url: "<mt:AdminCGIPath /><mt:AdminScript />?__mode=mfa_google_auth_disable",
+        url: "<mt:var name="mt_url" />?__mode=mfa_google_auth_disable",
         dataType: "json",
       }).then(function(data) {
         location.reload();
@@ -28,13 +28,13 @@ jQuery(function($) {
     ev.preventDefault();
     $.ajax({
       type: "POST",
-      url: "<mt:AdminCGIPath /><mt:AdminScript />?__mode=mfa_google_auth_enable",
+      url: "<mt:var name="mt_url" />?__mode=mfa_google_auth_enable",
       dataType: "json",
     }).then(function(data) {
       var res = data.result;
 
       (jQuery.fn.mtModal || jQuery.fn.mtDialog).open(
-        '<mt:AdminCGIPath /><mt:AdminScript />?__mode=mfa_google_auth_dialog',
+        '<mt:var name="mt_url" />?__mode=mfa_google_auth_dialog',
         {
             esckeyclose: false
         }
