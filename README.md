@@ -1,3 +1,7 @@
+This plugin is no longer maintained. Please consider using the following plugin instead.
+https://github.com/movabletype/mt-plugin-MFA-TOTP/
+
+
 # MFA-GoogleAuth
 
 This is a plugin for the Movable Type.
